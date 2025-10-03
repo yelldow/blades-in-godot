@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://sy6glpkswp1y"]
+
+[ext_resource type="FontFile" uid="uid://brofquvnxqhya" path="res://Fonts/MC360.ttf" id="1_hlu7x"]
+
+[resource]
+font = ExtResource("1_hlu7x")
+font_size = 15
+font_color = Color(0.212305, 0.212305, 0.212305, 1)
+outline_size = 1
+outline_color = Color(1, 1, 1, 0.137255)
+shadow_size = 2
+shadow_color = Color(1, 1, 1, 0.14902)
+shadow_offset = Vector2(2.24, 2.725)

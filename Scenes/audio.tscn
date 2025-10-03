@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://csvywtt125pgq"]
+
+[ext_resource type="Script" uid="uid://vvydac50mm2p" path="res://Scripts/audio.gd" id="1_x5nyw"]
+[ext_resource type="AudioStream" uid="uid://cslgt52f8iks3" path="res://Audio/Swoosh/blades_swoosh_1.wav" id="2_0svpk"]
+[ext_resource type="AudioStream" uid="uid://bosowtnd5mp32" path="res://Audio/Swoosh/blades_swoosh_2.wav" id="3_5olcg"]
+[ext_resource type="AudioStream" uid="uid://hreum8w3hbfo" path="res://Audio/Swoosh/blades_swoosh_3.wav" id="4_pgqns"]
+[ext_resource type="AudioStream" uid="uid://cqk1f41gytagc" path="res://Audio/Swoosh/blades_swoosh_4.wav" id="5_cqcg1"]
+[ext_resource type="AudioStream" uid="uid://csc5de613fd5x" path="res://Audio/Swoosh/blades_swoosh_5.wav" id="6_564a7"]
+[ext_resource type="AudioStream" uid="uid://c3rt86xy24oxl" path="res://Audio/Swoosh/blades_swoosh_click.wav" id="7_qf6oy"]
+
+[node name="Audio" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+script = ExtResource("1_x5nyw")
+
+[node name="Swoosh1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0svpk")
+max_polyphony = 5
+
+[node name="Swoosh2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5olcg")
+max_polyphony = 5
+
+[node name="Swoosh3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pgqns")
+max_polyphony = 5
+
+[node name="Swoosh4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cqcg1")
+max_polyphony = 5
+
+[node name="Swoosh5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_564a7")
+max_polyphony = 5
+
+[node name="SwooshClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qf6oy")
+max_polyphony = 5

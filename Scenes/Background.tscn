@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://byi15pocbk2g6"]
+
+[ext_resource type="Script" uid="uid://ddeb04hcekn84" path="res://Scripts/Background.gd" id="1_mxry3"]
+[ext_resource type="Texture2D" uid="uid://byoy48emywoy6" path="res://Textures/bg_spin_hq.jpg" id="2_8xc84"]
+[ext_resource type="Script" uid="uid://c0u1pjimp0bvd" path="res://Scripts/BG_Spin.gd" id="3_ynkqc"]
+[ext_resource type="PackedScene" uid="uid://bnw52ricycdkd" path="res://Scenes/bg_colors.tscn" id="4_laxsj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u4bte"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1rhai"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vp2o8"]
+blend_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j1afj"]
+blend_mode = 1
+
+[node name="Background" type="Control"]
+z_index = -200
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_mxry3")
+
+[node name="Base" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[node name="BG_Colors" parent="." instance=ExtResource("4_laxsj")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spin2" type="ColorRect" parent="."]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.492)
+
+[node name="spin_mix" type="TextureRect" parent="Spin2"]
+self_modulate = Color(1, 1, 1, 0.305882)
+material = SubResource("CanvasItemMaterial_u4bte")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(576, 576)
+texture = ExtResource("2_8xc84")
+expand_mode = 4
+script = ExtResource("3_ynkqc")
+metadata/spin_degrees_per_second = 0.23
+
+[node name="spin_add" type="TextureRect" parent="Spin2"]
+self_modulate = Color(1, 1, 1, 0.196078)
+material = SubResource("CanvasItemMaterial_1rhai")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 576)
+texture = ExtResource("2_8xc84")
+expand_mode = 4
+script = ExtResource("3_ynkqc")
+metadata/spin_degrees_per_second = 0.29
+
+[node name="spin_sub" type="TextureRect" parent="Spin2"]
+self_modulate = Color(1, 1, 1, 0.282353)
+material = SubResource("CanvasItemMaterial_vp2o8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+pivot_offset = Vector2(576, 576)
+texture = ExtResource("2_8xc84")
+expand_mode = 4
+script = ExtResource("3_ynkqc")
+metadata/spin_degrees_per_second = -0.37
+
+[node name="spin_add2" type="TextureRect" parent="Spin2"]
+self_modulate = Color(1, 1, 1, 0.25098)
+material = SubResource("CanvasItemMaterial_j1afj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -6.28319
+pivot_offset = Vector2(576, 576)
+texture = ExtResource("2_8xc84")
+expand_mode = 4
+script = ExtResource("3_ynkqc")
+metadata/spin_degrees_per_second = -0.51

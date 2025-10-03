@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bikx7qalxsau1"]
+
+[ext_resource type="Texture2D" uid="uid://perkmin6vc6e" path="res://Textures/gamecard_home-silver-focus.png" id="1_7np2n"]
+[ext_resource type="Texture2D" uid="uid://bwreh0mhqsb6b" path="res://Textures/gamecard_home-silver.png" id="2_mwt1v"]
+
+[node name="User" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG_Selected" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7np2n")
+
+[node name="BG_Deselected" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_mwt1v")

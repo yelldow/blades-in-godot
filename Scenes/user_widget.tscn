@@ -1,0 +1,155 @@
+[gd_scene load_steps=10 format=3 uid="uid://k0inmgi4pyff"]
+
+[ext_resource type="Texture2D" uid="uid://b3wykj8cdts78" path="res://Textures/user.png" id="1_pmqej"]
+[ext_resource type="PackedScene" uid="uid://db315yafefsr4" path="res://Scenes/selection_box.tscn" id="2_pt6hh"]
+[ext_resource type="FontFile" uid="uid://brofquvnxqhya" path="res://Fonts/MC360.ttf" id="3_6qqtp"]
+[ext_resource type="Texture2D" uid="uid://xogovw81o0qg" path="res://Textures/gamercard_defaultgamerpic.png" id="4_gf344"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fxus"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+shadow_color = Color(0, 0, 0, 0)
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="Gradient" id="Gradient_pt6hh"]
+colors = PackedColorArray(0.4888, 0.49712, 0.52, 0.682353, 0.4888, 0.49712, 0.52, 0.407843)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6qqtp"]
+gradient = SubResource("Gradient_pt6hh")
+
+[sub_resource type="Gradient" id="Gradient_e73db"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.509286, 0.509286, 0.509286, 0.6)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4a442"]
+gradient = SubResource("Gradient_e73db")
+
+[node name="User_Widget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -954.0
+offset_bottom = -579.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="Panel" type="Panel" parent="."]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1fxus")
+
+[node name="TextureRect5" type="TextureRect" parent="Panel"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_6qqtp")
+expand_mode = 1
+
+[node name="Selection_Box" parent="." instance=ExtResource("2_pt6hh")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+offset_left = 6.0
+offset_right = 294.0
+offset_bottom = 149.0
+scale = Vector2(0.125, 0.125)
+theme_override_colors/default_color = Color(0.09, 0.09, 0.09, 1)
+theme_override_colors/font_outline_color = Color(0.09, 0.09, 0.09, 0.501961)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.137255)
+theme_override_constants/outline_size = 7
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+theme_override_fonts/normal_font = ExtResource("3_6qqtp")
+theme_override_font_sizes/normal_font_size = 100
+text = "Sign In
+"
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Text2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 51.3333
+offset_top = -41.0
+offset_right = 675.333
+offset_bottom = 108.0
+grow_vertical = 0
+scale = Vector2(0.125, 0.125)
+theme_override_colors/default_color = Color(0.09, 0.09, 0.09, 1)
+theme_override_colors/font_outline_color = Color(0.09, 0.09, 0.09, 0.501961)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.137255)
+theme_override_constants/outline_size = 7
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+theme_override_fonts/normal_font = ExtResource("3_6qqtp")
+theme_override_font_sizes/normal_font_size = 100
+text = "1 Profile Found
+"
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -47.0
+offset_right = 44.0
+offset_bottom = -9.0
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_4a442")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -46.0
+offset_right = 43.0
+offset_bottom = -10.0
+grow_vertical = 0
+texture = ExtResource("4_gf344")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 198.5
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pmqej")
+expand_mode = 3
+stretch_mode = 4

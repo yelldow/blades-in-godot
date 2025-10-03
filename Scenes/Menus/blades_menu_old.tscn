@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://4wqxbyuhu2ep"]
+
+[ext_resource type="Script" uid="uid://rpi5n86g4xsu" path="res://Scripts/Menus/blades_menu.gd" id="1_h5ugb"]
+[ext_resource type="PackedScene" uid="uid://sgy1srhn8xtx" path="res://Scenes/button_widget_old.tscn" id="2_mjx0o"]
+[ext_resource type="PackedScene" uid="uid://k0inmgi4pyff" path="res://Scenes/user_widget.tscn" id="3_vlkd4"]
+[ext_resource type="Texture2D" uid="uid://dovb7ph76sgsw" path="res://Textures/Xbox_360_Logo.png" id="4_b0vov"]
+[ext_resource type="FontFile" uid="uid://brofquvnxqhya" path="res://Fonts/MC360.ttf" id="5_wiv1m"]
+[ext_resource type="AudioStream" uid="uid://fwfmhn7gt4cl" path="res://Audio/Select/Cursor.wav" id="6_rtx4y"]
+
+[sub_resource type="Gradient" id="Gradient_wvgf3"]
+colors = PackedColorArray(0, 0, 0, 0.411765, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x6n3a"]
+gradient = SubResource("Gradient_wvgf3")
+fill = 1
+fill_from = Vector2(0.5, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -99.0
+offset_bottom = -350.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h5ugb")
+
+[node name="Button_Widget" parent="." instance=ExtResource("2_mjx0o")]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 123.0
+offset_right = 246.0
+offset_bottom = 323.0
+scale = Vector2(1.26, 1.26)
+
+[node name="User_Widget" parent="." instance=ExtResource("3_vlkd4")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = -5.0
+offset_right = 183.0
+offset_bottom = 66.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.7, 1.7)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 349.0
+offset_top = -31.0
+offset_right = 603.0
+offset_bottom = 134.0
+texture = ExtResource("4_b0vov")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 339.0
+offset_top = 123.0
+offset_right = 662.0
+offset_bottom = 131.0
+scale = Vector2(1, -1)
+texture = SubResource("GradientTexture2D_x6n3a")
+expand_mode = 1
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+offset_left = 349.0
+offset_top = 126.0
+offset_right = 2781.0
+offset_bottom = 1438.0
+scale = Vector2(0.158, 0.158)
+theme_override_colors/default_color = Color(0.09, 0.09, 0.09, 1)
+theme_override_colors/font_outline_color = Color(0.09, 0.09, 0.09, 0.501961)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.137255)
+theme_override_constants/outline_size = 7
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+theme_override_fonts/normal_font = ExtResource("5_wiv1m")
+theme_override_font_sizes/normal_font_size = 128
+autowrap_mode = 0
+
+[node name="Cursor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rtx4y")

@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5hqujmus5fpb"]
+
+[ext_resource type="Script" uid="uid://dfxswafys2ad0" path="res://Scripts/control.gd" id="1_ae4fu"]
+[ext_resource type="PackedScene" uid="uid://dyndtuasok83j" path="res://Scenes/menu_bg_shine.tscn" id="2_y8sja"]
+[ext_resource type="Script" uid="uid://caewh8swcer3q" path="res://Scripts/bg_shine.gd" id="3_bv8a5"]
+[ext_resource type="PackedScene" uid="uid://byi15pocbk2g6" path="res://Scenes/Background.tscn" id="3_y8sja"]
+[ext_resource type="PackedScene" uid="uid://csvywtt125pgq" path="res://Scenes/audio.tscn" id="4_bv8a5"]
+[ext_resource type="PackedScene" uid="uid://dvomnis4sy48y" path="res://Scenes/sidebars.tscn" id="5_bx6jj"]
+[ext_resource type="Texture2D" uid="uid://b0qusbv7x4ldj" path="res://Textures/ref/xbox_dash_games.png" id="7_y8sja"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ae4fu")
+
+[node name="Menu_Container" type="Control" parent="Control"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG Shine" parent="Control/Menu_Container" instance=ExtResource("2_y8sja")]
+z_index = -195
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+script = ExtResource("3_bv8a5")
+
+[node name="Menu_Margin" type="MarginContainer" parent="Control/Menu_Container"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="Menu" type="Control" parent="Control/Menu_Container/Menu_Margin"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/Menu_Container"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 100, 0, 1)
+
+[node name="Background" parent="Control" instance=ExtResource("3_y8sja")]
+
+[node name="Control" type="Control" parent="Control"]
+visible = false
+clip_children = 1
+anchors_preset = 0
+offset_left = -59.0
+offset_top = 10.0
+offset_right = -19.0
+offset_bottom = 50.0
+
+[node name="Audio" parent="Control" instance=ExtResource("4_bv8a5")]
+
+[node name="Sidebars" parent="Control" instance=ExtResource("5_bx6jj")]
+
+[node name="Debug" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
+modulate = Color(1.2, 1.2, 1.2, 0.475)
+z_index = 4096
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_y8sja")
+expand_mode = 1
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

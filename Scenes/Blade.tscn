@@ -1,0 +1,145 @@
+[gd_scene load_steps=11 format=3 uid="uid://drngk0fqs8vtl"]
+
+[ext_resource type="Script" uid="uid://dtp6csrmvsjd1" path="res://Scripts/blade.gd" id="1_hhjjd"]
+[ext_resource type="Texture2D" uid="uid://qrk4lnc17gnh" path="res://Textures/blade_left_opaque.tres" id="2_03q7s"]
+[ext_resource type="Texture2D" uid="uid://4ptm7tokm45v" path="res://Textures/blade_left_transparent.tres" id="3_xgfhf"]
+[ext_resource type="Script" uid="uid://b76bgewe22ef7" path="res://Scripts/bg_colors.gd" id="4_xgfhf"]
+[ext_resource type="Texture2D" uid="uid://do3eipnw41d77" path="res://Textures/blade_left_blank.tres" id="4_y1ogl"]
+[ext_resource type="LabelSettings" uid="uid://c56m7vki8nb6p" path="res://Textures/blade_text.tres" id="5_oepyk"]
+[ext_resource type="PackedScene" uid="uid://bnw52ricycdkd" path="res://Scenes/bg_colors.tscn" id="5_y1ogl"]
+[ext_resource type="Texture2D" uid="uid://byoy48emywoy6" path="res://Textures/bg_spin_hq.jpg" id="6_oepyk"]
+[ext_resource type="Script" uid="uid://c0u1pjimp0bvd" path="res://Scripts/BG_Spin.gd" id="7_ts8tl"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oepyk"]
+blend_mode = 1
+
+[node name="Blade" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 81.0
+offset_bottom = 648.0
+pivot_offset = Vector2(40, 324)
+script = ExtResource("1_hhjjd")
+metadata/_edit_group_ = true
+
+[node name="Rotation_Controller" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.14
+offset_right = -24.14
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-3000, 324)
+
+[node name="OpaqueBlade" type="TextureRect" parent="Rotation_Controller"]
+z_index = 1
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.14)
+pivot_offset = Vector2(40, 324)
+texture = ExtResource("2_03q7s")
+expand_mode = 3
+
+[node name="TransparentBlade" type="TextureRect" parent="Rotation_Controller"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.14)
+pivot_offset = Vector2(40, 324)
+texture = ExtResource("3_xgfhf")
+expand_mode = 3
+
+[node name="BG_Colors" type="TextureRect" parent="Rotation_Controller/TransparentBlade"]
+clip_children = 1
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(40, 324)
+texture = ExtResource("2_03q7s")
+expand_mode = 3
+script = ExtResource("4_xgfhf")
+
+[node name="BG_Colors" parent="Rotation_Controller/TransparentBlade/BG_Colors" instance=ExtResource("5_y1ogl")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Rotation_Controller/TransparentBlade/BG_Colors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 2)
+
+[node name="spin_mix" type="TextureRect" parent="Rotation_Controller/TransparentBlade/BG_Colors/Control"]
+self_modulate = Color(1, 1, 1, 0.305882)
+material = SubResource("CanvasItemMaterial_oepyk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.04
+offset_top = 61.365
+offset_right = -57.04
+offset_bottom = -458.635
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("6_oepyk")
+expand_mode = 4
+script = ExtResource("7_ts8tl")
+metadata/spin_degrees_per_second = 0.23
+
+[node name="BlankBlade" type="TextureRect" parent="Rotation_Controller"]
+visible = false
+z_index = 1
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.14)
+pivot_offset = Vector2(40, 324)
+texture = ExtResource("4_y1ogl")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+layout_mode = 2
+offset_left = 28.16
+offset_top = 130.0
+offset_right = 97.16
+offset_bottom = 276.0
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(36.025, 12)
+label_settings = ExtResource("5_oepyk")

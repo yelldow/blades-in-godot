@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnw52ricycdkd"]
+
+[ext_resource type="Script" uid="uid://b76bgewe22ef7" path="res://Scripts/bg_colors.gd" id="1_mqvkl"]
+[ext_resource type="Texture2D" uid="uid://bq13oowyeenpj" path="res://Background/BG_Red.tres" id="2_ysxuc"]
+[ext_resource type="Texture2D" uid="uid://dqrw4qyae4vl3" path="res://Background/BG_Orange.tres" id="3_hblub"]
+[ext_resource type="Texture2D" uid="uid://c45gwpp0nqhd2" path="res://Background/BG_Green.tres" id="4_14r4y"]
+[ext_resource type="Texture2D" uid="uid://ds0xby4sp6o8s" path="res://Background/BG_Blue.tres" id="5_kdtjt"]
+[ext_resource type="Texture2D" uid="uid://cubm30sm0ajnj" path="res://Background/BG_Purple.tres" id="6_u1p5e"]
+
+[node name="BG_Colors" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mqvkl")
+
+[node name="Red" type="TextureRect" parent="."]
+self_modulate = Color(1.2, 1.5, 1.5, 1)
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 26.85
+texture = ExtResource("2_ysxuc")
+expand_mode = 1
+
+[node name="Orange" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 26.85
+texture = ExtResource("3_hblub")
+expand_mode = 1
+
+[node name="Green" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 26.85
+texture = ExtResource("4_14r4y")
+expand_mode = 1
+
+[node name="Blue" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1.5, 1.5, 1.2, 1)
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 26.85
+texture = ExtResource("5_kdtjt")
+expand_mode = 1
+
+[node name="Purple" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1.2, 1.45, 1.2, 1)
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 26.85
+texture = ExtResource("6_u1p5e")
+expand_mode = 1

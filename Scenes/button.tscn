@@ -1,0 +1,213 @@
+[gd_scene load_steps=13 format=3 uid="uid://bx0scl6iwv4i"]
+
+[ext_resource type="Script" uid="uid://b75vm02u3jdio" path="res://Scripts/button.gd" id="1_iju5o"]
+[ext_resource type="Script" uid="uid://b4wr0olxtosxd" path="res://Scripts/select_animate.gd" id="2_edukx"]
+[ext_resource type="FontFile" uid="uid://brofquvnxqhya" path="res://Fonts/MC360.ttf" id="4_nrk2b"]
+
+[sub_resource type="Gradient" id="Gradient_nctrf"]
+colors = PackedColorArray(1, 1, 1, 0.635294, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2kp8h"]
+gradient = SubResource("Gradient_nctrf")
+fill = 1
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lj86r"]
+gradient = SubResource("Gradient_nctrf")
+fill = 1
+fill_from = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_s0hin"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d7rpu"]
+gradient = SubResource("Gradient_s0hin")
+
+[sub_resource type="Gradient" id="Gradient_dsq24"]
+offsets = PackedFloat32Array(0, 0.268222, 1)
+colors = PackedColorArray(0.11, 0.11, 0.11, 1, 0.11, 0.11, 0.11, 0.552941, 0.11, 0.11, 0.11, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m64rv"]
+gradient = SubResource("Gradient_dsq24")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_iju5o"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.63, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.464, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_edukx"]
+gradient = SubResource("Gradient_iju5o")
+fill_from = Vector2(0.115854, 0.481707)
+fill_to = Vector2(0.890244, 0.615854)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 32.0
+script = ExtResource("1_iju5o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+pivot_offset = Vector2(0, 1)
+color = Color(0, 0, 0, 0.156863)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, 1)
+color = Color(0, 0, 0, 0.156863)
+
+[node name="SelectContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_edukx")
+
+[node name="highlight_down" type="TextureRect" parent="SelectContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_2kp8h")
+expand_mode = 1
+
+[node name="highlight_up" type="TextureRect" parent="SelectContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_lj86r")
+expand_mode = 1
+
+[node name="shine" type="TextureRect" parent="SelectContainer"]
+modulate = Color(1, 1, 1, 0.721569)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_d7rpu")
+expand_mode = 1
+
+[node name="shadow" type="TextureRect" parent="SelectContainer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1e-05)
+texture = SubResource("GradientTexture2D_m64rv")
+expand_mode = 1
+
+[node name="IconContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 37.0
+offset_bottom = -1.0
+grow_vertical = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="IconContainer"]
+texture_filter = 6
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 219.0
+offset_bottom = -1.0
+grow_vertical = 2
+
+[node name="Clip" type="ColorRect" parent="TextContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="TextContainer/Clip"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_right = 1696.0
+offset_bottom = 224.0
+grow_vertical = 2
+scale = Vector2(0.125, 0.125)
+theme_override_colors/default_color = Color(0.09, 0.09, 0.09, 1)
+theme_override_colors/font_outline_color = Color(0.09, 0.09, 0.09, 0.501961)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.137255)
+theme_override_constants/outline_size = 7
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+theme_override_fonts/normal_font = ExtResource("4_nrk2b")
+theme_override_font_sizes/normal_font_size = 128
+text = "[Unnamed]"
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="shimmer" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = 1.0
+offset_right = -45.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_edukx")
+expand_mode = 1
